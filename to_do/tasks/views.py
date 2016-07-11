@@ -7,10 +7,8 @@ from .form import TaskForm
 def home_view(request):
     """Return home page."""
     form = TaskForm()
-    if request.method == 'POST':
-        return
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return render(request, 'index.html')
     return render(request, 'index.html', {'form': form})
 
-
-# def create_task(request):
-#     if request.method == 'POST':
