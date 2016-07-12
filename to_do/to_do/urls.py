@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from tasks.views import home_view
+from tasks.views import home_view, delete_task
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_view, name='home_view'),
+    url(r'^delete/(?P<pk>[0-9]+)$', delete_task, name='delete_view'),
 ]
