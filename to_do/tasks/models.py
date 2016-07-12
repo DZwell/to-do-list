@@ -9,3 +9,7 @@ class Task(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     notes = models.CharField(max_length=200)
 
+    def __str__(self):
+        """Return string."""
+        return self.task
+
