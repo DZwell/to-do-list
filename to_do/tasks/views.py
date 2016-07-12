@@ -10,9 +10,8 @@ def home_view(request):
         form = TaskForm(request.POST)
         new_task = Task(task=form.data['task'], notes=form.data['notes'])
         new_task.save()
-        tasks = Task.objects.all()
-        return render(request, 'index.html', {'form': form, 'tasks': tasks})
+    tasks = Task.objects.all()
     form = TaskForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'index.html', {'form': form, 'tasks': tasks})
 
 

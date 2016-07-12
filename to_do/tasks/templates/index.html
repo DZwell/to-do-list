@@ -10,7 +10,7 @@
     <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_ul }}
-    <input id="submit" type="submit" value="submit" onclick="submitForm()">
+    <input id="submit" type="submit" value="submit">
     </form>
     <ul>
     {% for task in tasks %}
