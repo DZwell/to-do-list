@@ -9,9 +9,9 @@ def home_view(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
         new_task = Task(task=form.data['task'], notes=form.data['notes'])
-        # import pdb;pdb.set_trace()
         new_task.save()
-        return render(request, 'index.html', {'form': form, 'task': new_task})
+        tasks = Task.objects.all()
+        return render(request, 'index.html', {'form': form, 'tasks': tasks})
     form = TaskForm()
     return render(request, 'index.html', {'form': form})
 

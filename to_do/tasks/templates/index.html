@@ -11,8 +11,10 @@
     <input type="submit" value="submit">
     </form>
     <ul>
-        <li>{{ task.task }}</li>
-        <li>{{ task.notes }}</li>
+    {% for task in tasks %}
+        <li>{{ task }}</li>
+        <!-- <li>{{ task.notes }}</li> -->
+    {% endfor %}
     </ul>
 
 </body>
