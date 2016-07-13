@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from tasks.views import home_view, delete_task
+from tasks.views import home_view, delete_task, edit_task
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_view, name='home_view'),
     url(r'^delete/(?P<pk>[0-9]+)$', delete_task, name='delete_view'),
+    url(r'^edit/(?P<pk>[0-9]+)$', edit_task, name='edit_task'),
 ]
