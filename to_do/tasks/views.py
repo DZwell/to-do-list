@@ -35,8 +35,7 @@ def edit_task(request, pk):
             task = form.save()
             task.task = form['task'].data
             task.notes = form['notes'].data
-            task.created = datetime.datetime.utcnow()
-            task.save()
+            task.save(update_fields=['task', 'notes'])
         return redirect('home_view')
     form = TaskForm(instance=task)
     all_tasks = Task.objects.order_by('id')
