@@ -14,7 +14,7 @@
     </form>
     <ul>
     {% for task in tasks %}
-        <li>{{ task }}</li>
+        <a href="edit/{{ task.id }}"><li>{{ task }}</li></a>
         <!-- <li>{{ task.notes }}</li> -->
     {% endfor %}
     </ul>
