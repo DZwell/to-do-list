@@ -12,16 +12,18 @@ def home_view(request, **kwargs):
         new_task = Task(task=form.data['task'], notes=form.data['notes'])
         new_task.created = datetime.datetime.utcnow()
         new_task.save()
-    tasks = Task.objects.all()
+    tasks = Task.objects.order_by('id')
     form = TaskForm()
     return render(request, 'index.html', {'form': form, 'tasks': tasks})
 
 
 def delete_task(request, **kwargs):
     """Delete task."""
-    task = Task(pk=kwargs['pk'])
-    task.delete()
-    return redirect('/')
+    import pdb;pdb.set_trace()
+    if request.GET.get('delete'):
+        task = Task(pk=kwargs['pk'])
+        task.delete()
+        return redirect('/')
 
 
 def edit_task(request, pk):
@@ -36,9 +38,8 @@ def edit_task(request, pk):
             task.created = datetime.datetime.utcnow()
             task.save()
         return redirect('home_view')
-    # import pdb;pdb.set_trace()
     form = TaskForm(instance=task)
-    all_tasks = Task.objects.all()
+    all_tasks = Task.objects.order_by('id')
     return render(request, 'index.html', {'form': form, 'task': task, 'tasks': all_tasks})
 
 
