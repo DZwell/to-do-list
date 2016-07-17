@@ -20,10 +20,9 @@ def home_view(request, **kwargs):
 def delete_task(request, **kwargs):
     """Delete task."""
     import pdb;pdb.set_trace()
-    if request.GET.get('delete'):
-        task = Task(pk=kwargs['pk'])
-        task.delete()
-        return redirect('/')
+    task = Task(pk=kwargs['pk'])
+    task.delete()
+    return redirect('/')
 
 
 def edit_task(request, pk):
