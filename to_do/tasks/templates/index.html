@@ -11,10 +11,12 @@
     {% csrf_token %}
     {{ form.as_ul }}
     <input id="submit" type="submit" value="submit">
+    {% block content %}
+    {% endblock %}
     </form>
     <ul>
     {% for task in tasks %}
-        <a href="edit/{{ task.id }}"><li>{{ task }}</li></a>
+        <a href="edit/{{ task.id }}"><li>{{ task.created }}: {{ task }}</li></a>
         <!-- <li>{{ task.notes }}</li> -->
     {% endfor %}
     </ul>

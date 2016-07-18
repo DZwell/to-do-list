@@ -19,7 +19,6 @@ def home_view(request, **kwargs):
 
 def delete_task(request, **kwargs):
     """Delete task."""
-    import pdb;pdb.set_trace()
     task = Task(pk=kwargs['pk'])
     task.delete()
     return redirect('/')
@@ -37,8 +36,7 @@ def edit_task(request, pk):
             task.save(update_fields=['task', 'notes'])
         return redirect('home_view')
     form = TaskForm(instance=task)
-    all_tasks = Task.objects.order_by('id')
-    return render(request, 'index.html', {'form': form, 'task': task, 'tasks': all_tasks})
+    return render(request, 'edit.html', {'form': form, 'task': task})
 
 
 

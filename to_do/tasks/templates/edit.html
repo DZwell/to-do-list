@@ -1,0 +1,4 @@
+{% extends 'index.html' %}
+{% block content %}
+<a href="{% url 'delete_task' task.id %}"><input id="delete_button" type="button" name="delete" value="Delete"></a>
+{% endblock %}
