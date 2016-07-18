@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from tasks.views import home_view, delete_task, edit_task
+from tasks_api.views import TaskViewSet
 from rest_framework.routers import DefaultRouter
 
+
 router = DefaultRouter()
+router.register(r'tasks', TaskViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
