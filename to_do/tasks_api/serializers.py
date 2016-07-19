@@ -4,7 +4,7 @@ from rest_framework import serializers
 from tasks.models import Task
 
 
-class TaskSerializer(serializers.ModelSerializer):
+class TaskSerializer(serializers.HyperlinkedModelSerializer):
     """Task Serializer."""
 
     class Meta:
