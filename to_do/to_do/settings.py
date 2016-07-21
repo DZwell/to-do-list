@@ -26,7 +26,7 @@ SECRET_KEY = '435w8zx35u1gcp8rpsghyaxr#o)sasn^recdo#4_r)m_c7+$s%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://dz-to-do-list.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '.herokuapp.com']
 
 
 # Application definition
