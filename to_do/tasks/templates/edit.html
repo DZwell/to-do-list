@@ -1,4 +1,7 @@
 {% extends 'index.html' %}
 {% block content %}
 <a href="{% url 'delete_task' task.id %}"><input id="delete_button" type="button" name="delete" value="Delete"></a>
+<script type="text/javascript">
+    var link = document.getElementById('api').remove();
+</script>
 {% endblock %}
