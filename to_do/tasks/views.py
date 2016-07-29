@@ -27,6 +27,7 @@ def delete_task(request, **kwargs):
 def edit_task(request, pk):
     """Edit task."""
     task = get_object_or_404(Task, pk=pk)
+    all_tasks = Task.objects.order_by('id')
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
@@ -36,7 +37,7 @@ def edit_task(request, pk):
             task.save(update_fields=['task', 'notes'])
         return redirect('home_view')
     form = TaskForm(instance=task)
-    return render(request, 'edit.html', {'form': form, 'task': task})
+    return render(request, 'edit.html', {'form': form, 'task': task, 'tasks': all_tasks})
 
 
 
