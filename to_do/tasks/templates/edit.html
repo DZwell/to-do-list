@@ -1,7 +1,4 @@
 {% extends 'index.html' %}
 {% block content %}
-<a href="{% url 'delete_task' task.id %}"><input id="delete_button" type="button" name="delete" value="Delete"></a>
-<script type="text/javascript">
-    var link = document.getElementById('api').remove();
-</script>
+<a href="{% url 'delete_task' task.id %}"><button id="delete_button" class="mdl-button mdl-js-button mdl-js-ripple-effect"type="button" name="delete" value="Delete">Delete</button></a>
 {% endblock %}
