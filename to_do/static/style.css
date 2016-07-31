@@ -113,6 +113,7 @@ li a:hover {
 }
 
 .task-items {
+    font-family: Indie Flower;
   width: 90%;
   position: relative;
   top: 15%;
@@ -121,3 +122,4 @@ li a:hover {
 .task-items li {
   padding-right: 5%;
 }
+
